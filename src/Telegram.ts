@@ -326,6 +326,24 @@ export default class Telegram {
             });
           });
       }
+
+      // const photo = ctx.update.message?.photo;
+      const caption = ctx.update.message?.caption;
+      // this.logger.info(`Received photo message from Telegram: ${photo}, ${caption}`);
+
+      if (caption) {
+        this.logger.info(`Received caption message from Telegram: ${caption}`);
+        // extract magent link from caption
+        const captionMagnet = caption.match(/magnet:\?xt=urn:[A-Za-z0-9]+:[A-Za-z0-9]+[^\\n]+/i);
+        if (captionMagnet) {
+          const magnetLink = captionMagnet[0];
+          if (isDownloadable(magnetLink)) {
+            this.aria2Server.send('addUri', [[magnetLink]]);
+          } else {
+            this.logger.warn(`Unable to a parse the request: ${caption}`);
+          }
+        }
+      }
     });
   }
 

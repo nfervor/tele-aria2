@@ -19,7 +19,7 @@ The newly rewritten project has a few advantages over [the old one](https://gith
 ## Setup
 
 1. Create your own bot and get its access token by using [@BotFather](https://telegram.me/botfather).
-1. Get your unique user ID - https://stackoverflow.com/a/32777943/4480674.
+1. Get your unique user ID - <https://stackoverflow.com/a/32777943/4480674>.
 1. (Optional) Telegram blocked in your region/country? be sure to have a **HTTP** proxy up and running.
 1. `$ npm install tele-aria2 -g`.
 1. `$ tele-aria2 --help` to see how to get started.
@@ -69,7 +69,7 @@ It's really simple, you just send any HTTP/FTP/SFTP/Magnet url to chat, it will 
 
 <img src="https://raw.githubusercontent.com/HouCoder/tele-aria2/HEAD/images/tele-aria2.download.gif" alt="start" width="400px">
 
-**But I want to download from a torrent file**
+### But I want to download from a torrent file
 
 No worries, just send your torrent file to chat!
 
@@ -79,7 +79,7 @@ No worries, just send your torrent file to chat!
 
 Run this bot as a Docker container, multi-architecture supported:
 
-```
+```bash
 $ docker run -it \
   -v ~/.tele-aria2.json:/tele-aria2/config.json \
   --net=host \
